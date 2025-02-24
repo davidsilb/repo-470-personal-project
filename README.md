@@ -1,9 +1,9 @@
-# repo-440-personal-project
-### Personal Workout Generator - Personal Project (IS440)
+# repo-470-personal-project
+### Personal Workout Generator - Personal Project (IS470)
 ### David Silbernagel
 
 ## Overview
-This repository contains all the relevant information pretaining to my **Personal Workout Generator** project for *IS 440*. This is a personal project to help users generate workout plans tailored to their needs.
+This repository contains all the relevant information pretaining to my **Personal Workout Generator** project for *IS 470*. This is a personal project to help users generate workout plans tailored to their needs.
 
 ## Project Resources
 - [Product Backlog](https://github.com/users/davidsilb/projects/1/views/1) → Homework #4
@@ -17,4 +17,4 @@ This repository contains all the relevant information pretaining to my **Persona
 ## Clone info
 1. Clone the repository:
    ```sh
-   git clone https://github.com/davidsilb/repo-440-personal-project
+   git clone https://github.com/davidsilb/repo-470-personal-project
