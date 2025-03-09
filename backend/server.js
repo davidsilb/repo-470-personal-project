@@ -10,11 +10,19 @@ app.get("/", (req, res) => {
     res.send("Backend is working!");
 });
 
-app.get("/generate", (req, res) => {
-    const workouts = ["Push-ups", "Squats", "Jump Rope", "Burpees", "Plank"];
-    const randomWorkout = workouts[Math.floor(Math.random() * workouts.length)];
-    
-    res.json({ workout: randomWorkout });
+app.get("/generate", async (req, res) => {
+    try {
+        const result = await pool.query("SELECT * FROM workouts ORDER BY RANDOM() LIMIT 1");
+        
+        if (result.rows.length > 0) {
+            res.json({ workout: result.rows[0] });
+        } else {
+            res.status(404).json({ error: "No workouts found in database." });
+        }
+    } catch (err) {
+        console.error("Database Error:", err.message);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
 });
 
 app.post("/workouts", async (req, res) => {
