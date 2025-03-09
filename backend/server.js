@@ -19,14 +19,20 @@ app.get("/generate", (req, res) => {
 
 app.post("/workouts", async (req, res) => {
     const { name, duration, category } = req.body;
+
+    if (!name || !duration || !category) {
+        return res.status(400).json({ error: "Missing required fields" });
+    }
+
     try {
         const newWorkout = await pool.query(
             "INSERT INTO workouts (name, duration, category) VALUES ($1, $2, $3) RETURNING *",
             [name, duration, category]
         );
-        res.json(newWorkout.rows[0]);
+        res.status(201).json(newWorkout.rows[0]);
     } catch (err) {
-        console.error(err.message);
+        console.error("Database Error:", err.message);
+        res.status(500).json({ error: "Internal Server Error" });
     }
 });
 
