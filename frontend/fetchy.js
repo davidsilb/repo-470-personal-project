@@ -1,5 +1,5 @@
 document.getElementById("generate").addEventListener("click", () => {
-    fetch("https://back-end-URL-here?")
+    fetch("https://repo-470-personal-project.onrender.com/generate")
         .then(response => response.json())
         .then(data => {
             document.getElementById("workout").innerText = JSON.stringify(data, null, 2);
